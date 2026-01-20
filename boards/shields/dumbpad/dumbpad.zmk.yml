@@ -4,17 +4,18 @@
 
 file_format: "1"
 id: dumbpad
-name: dumbpad
+name: Dumbpad
 type: shield
 
 # Set this to a URL that documents the keyboard.
-url: https://example.com
+url: https://github.com/imchipwood/dumbpad
 
 # Add any features your keyboard supports here.
 # See https://zmk.dev/docs/development/hardware-integration/hardware-metadata-files#features
 features:
-  - keys
-  - studio  # Remove this line if your keyboard will not support ZMK Studio
+    - keys
+    - encoder
+    - studio # Remove this line if your keyboard will not support ZMK Studio
 
 requires:
-  - pro_micro
+    - pro_micro

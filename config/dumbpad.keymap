@@ -1,0 +1,104 @@
+// This file was generated from a template. Edit it to match your keyboard.
+// See https://zmk.dev/docs/development/hardware-integration/new-shield for more instructions.
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+#define BASE 0
+#define ADJ 1
+#define NAV 2
+
+/ {
+
+    macros {
+        select_line: select_line {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <&macro_tap &kp HOME>
+            , <&macro_tap &kp LS(END)>
+            ;
+        };
+
+        delete_line: delete_line {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <&macro_tap &kp HOME>
+            , <&macro_tap &kp LS(END)>
+            , <&macro_tap &kp BSPC>
+            ;
+        };
+
+        emdash: emdash {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <&macro_press   &kp LALT>
+            , <&macro_tap     &kp KP_N0 &kp KP_N1 &kp KP_N5 &kp KP_N1>
+            , <&macro_release &kp LALT>
+            ;
+        };
+
+        endash: endash {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <&macro_press   &kp LALT>
+            , <&macro_tap     &kp KP_N0 &kp KP_N1 &kp KP_N5 &kp KP_N0>
+            , <&macro_release &kp LALT>
+            ;
+        };
+
+        search_web: search_web {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <&macro_tap   &kp K_APP>
+            , <&macro_tap   &kp S>
+            ;
+        };
+    };
+
+    // Define a default keymap here.
+    // See https://zmk.dev/docs/development/hardware-integration/new-shield#default-keymap.
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            display-name = "Base";
+            bindings = <
+                            &kp KP_N7    &kp KP_N8       &kp KP_N9         &kp KP_DIVIDE
+                            &kp KP_N4    &kp KP_N5       &kp KP_N6         &kp KP_MULTIPLY
+                &kp C_MUTE  &kp KP_N1    &kp KP_N2       &kp KP_N3         &kp KP_PLUS
+                &kp C_PP    &mo ADJ      &kp KP_N0       &kp KP_DOT        &kp KP_ENTER
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN &inc_dec_kp PG_UP PG_DN>;
+        };
+
+        adjacent {
+            display-name = "Adjacent";
+            bindings = <
+                            &kp KP_NUM     &emdash         &endash     &kp KP_MINUS
+                            &to NAV        &to NAV         &to NAV     &to NAV
+                &kp C_MUTE  &kp C_AL_CALC  &none           &none       &none
+                &kp C_PP    &none          &studio_unlock  &sys_reset  &bootloader
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN &inc_dec_kp PG_UP PG_DN>;
+        };
+
+        navigation {
+            display-name = "Navigation";
+            bindings = <
+                            &kp LG(L)       &select_line   &delete_line    &kp LC(PG_UP)
+                            &kp LC(LS(ESC)) &search_web    &none           &kp LC(PG_DN)
+                &kp C_MUTE  &kp LC(LG(N3))  &kp LC(LG(N4)) &kp LC(LG(N6))  &kp LC(LG(N7))
+                &kp C_PP    &to BASE        &none          &none           &none
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN &inc_dec_kp PG_UP PG_DN>;
+        };
+    };
+};
