@@ -68,10 +68,10 @@
         default_layer {
             display-name = "Base";
             bindings = <
-                            &kp KP_N7    &kp KP_N8       &kp KP_N9         &kp KP_DIVIDE
-                            &kp KP_N4    &kp KP_N5       &kp KP_N6         &kp KP_MULTIPLY
-                &kp C_MUTE  &kp KP_N1    &kp KP_N2       &kp KP_N3         &kp KP_PLUS
-                &kp C_PP    &mo ADJ      &kp KP_N0       &kp KP_DOT        &kp KP_ENTER
+                            &msc SCRL_LEFT &mkp MCLK     &msc SCRL_RIGHT   &msc SCRL_UP
+                            &kp KP_N4      &mkp LCLK     &mkp RCLK         &msc SCRL_DOWN
+                &kp C_MUTE  &kp KP_N1      &kp KP_N2     &kp KP_N3         &kp KP_PLUS
+                &kp C_PP    &mo ADJ        &mkp KP_N0    &kp KP_DOT        &kp KP_ENTER
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN &inc_dec_kp PG_UP PG_DN>;
