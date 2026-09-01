@@ -59,8 +59,8 @@
             display-name = "Base";
             bindings = <
                 &kp C_PP       &kp C_MUTE
-                &mkp MB4       &mkp MCLK      &mkp MB5          &msc MOVE_UP
-                &kp C_MUTE     &mkp LCLK      &mkp RCLK         &msc MOVE_DOWN
+                &mkp MB4       &mkp MCLK      &mkp MB5          &msc MOVE_DOWN
+                &kp C_MUTE     &mkp LCLK      &mkp RCLK         &msc MOVE_UP
                 &kp LC(LG(N3)) &kp LC(LG(N4)) &kp LC(LG(N6))    &kp LC(LG(N7))
                 &mo ADJ        &mo EDIT       &mo FNM           &mo NUM
             >;
